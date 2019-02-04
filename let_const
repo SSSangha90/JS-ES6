@@ -1,0 +1,52 @@
+// Lecture: Let and Const
+
+// ES5
+var name5 = "Sukhveer";
+var age5 = 29;
+name5 = "Sukh Sangha";
+console.log(name5 + ", " + age5);
+
+// ES6
+const name6 = "Sukhveer";
+// let - something that can change
+let age6 = 29;
+// name6 = "Sukh Sangha"; Doesn't work because we used const
+console.log(name6);
+
+//Variables declared with let and const in ES6 are block scoped as opposed to function scoped in ES5
+
+// ES5
+function driversLicense(passedTest){
+	if(passedTest){
+		var firstName = "Sukh";
+		var dob = 1990;
+	}
+	console.log(firstName + ", " + dob + ", is officially allowed to drive");//Should work, as it's still in the same function
+}
+
+driversLicense(true);
+
+// ES6
+function driversLicense(passedTest){
+	// console.log(firstName); Can no longer do this, hoist it.
+	let firstName;
+	
+	if(passedTest){
+		firstName = "Sukh";
+		const dob = 1990; // has to be declared inside the block unless you define it also on the outside
+	}
+	//console.log(firstName + ", " + dob + ", is officially allowed to drive"); //Doesn't work, has to be inside the block
+}
+
+driversLicense(true);
+
+// You can also no longer call a variable before it is declared.
+
+
+let i = 23;
+
+for (let i = 0; i < 5; i++){
+	console.log(i);
+}
+
+console.log(i);
