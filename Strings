@@ -1,0 +1,36 @@
+//////////////////////////////
+/////Strings in ES6
+
+let firstName = "Sukhveer";
+let lastName = "Sangha";
+const DOB = 1990;
+function calcAge(year){
+	return 2019 - year;
+}
+
+//ES5
+console.log("This is " + firstName + " " + lastName + ". He was born in " + DOB + ". Today he is " + calcAge(DOB) + " years old.");
+//Quite a lot of concatenation work
+
+//ES6
+//Now you can use BACK TICKS for a TEMPLATE LITERALS
+//Then you use the $sign, followed by curly braces and then pop the variable inside
+
+console.log(`This is ${firstName} ${lastName}. He was born in ${DOB}. Today he is ${calcAge(DOB)} years old.`);
+
+//Similar to Ruby
+
+const fullName  = `${firstName} + ${lastName}`;
+console.log(fullName.startsWith('S'));
+//new method that determins if the string starts with a certain letter or not.
+
+//we also have ends with
+console.log(fullName.endsWith('s'));
+
+//middle of the string, we have includes
+console.log(fullName.includes('ang'));
+
+//These three new methods are included in ES6
+
+console.log(firstName.repeat(5));
+//if we want a space in their, use the template literal
