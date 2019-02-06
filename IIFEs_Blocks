@@ -1,0 +1,18 @@
+//ES6 IIFE, simpler than ES5
+{
+	const a = 1;
+	let b = 2;
+	var c = 3;
+}
+
+console.log(a + b);
+//error because they are not accesible outside the block
+console.log(c);
+//this would work because var is not block scoped but function scoped
+
+//ES5 IIFE
+(function(){
+	var c = 3;
+})();
+
+console.log(c);
