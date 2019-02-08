@@ -1,0 +1,51 @@
+///////////////////////////////////
+/////Rest Parameters
+
+//opposite of the spread operator, recieve values and transform them into an array.
+/*
+//ES5
+function isFullAge5(){
+	//console.log(arguments);
+	var argsArr = Array.prototype.slice.call(arguments);
+	//hack
+	
+	argsArr.forEach(function(cur){
+		console.log((2019 - cur) >= 18);
+	});
+}
+//array-like structure but not an array
+//isFullAge5(1990, 2009, 1968);
+//isFullAge5(1990, 2009, 1968, 2016, 1987);
+
+
+//ES6 Rest Parameters
+function isFullAge6(...years){
+	years.forEach(cur => console.log((2019 - cur) >=18 ));
+}
+//turns it into an array
+isFullAge6(1990, 2009, 1968, 2016, 1987);
+*/
+
+
+//ES5
+function isFullAge5(limit){
+	console.log(arguments);
+	var argsArr = Array.prototype.slice.call(arguments, 1);
+	//hack
+	
+	argsArr.forEach(function(cur){
+		console.log((2019 - cur) >= limit);
+	});
+}
+//array-like structure but not an array
+isFullAge5(16, 1990, 2009, 1968);
+//isFullAge5(1990, 2009, 1968, 2016, 1987);
+
+
+//ES6 Rest Parameters
+function isFullAge6(limit, ...years){
+	years.forEach(cur => console.log((2019 - cur) >= limit ));
+}
+//turns it into an array
+isFullAge6(16, 1990, 2009, 1968, 2016, 1987);
+//with ES6, just add limit before the spread operator
