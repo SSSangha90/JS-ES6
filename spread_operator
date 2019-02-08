@@ -1,0 +1,39 @@
+///////////////////////////////////
+/////The spread operator
+
+//New operator
+//expands elements of an array
+
+function addFourAges (a, b,c, d){
+	return a + b + c + d;
+}
+
+var sum1 = addFourAges(18, 30, 12, 21);
+console.log(sum1);
+
+
+//ES5
+var ages = [18, 30, 12, 21];
+//we have the bind, call and apply methods
+var sum2 = addFourAges.apply(null, ages);
+console.log(sum2);
+
+//ES6
+const sum3 = addFourAges(...ages);
+//the three dots expands the component
+console.log(sum3);
+
+
+const familySmith = ["John", "Jane", "Mark"];
+const familyMiller = ["Mary", "Bob", "Ann"];
+//join the arrays using spread, so it's a big family
+const bigFamily = [...familySmith, "Lily", ...familyMiller];
+console.log(bigFamily);
+
+
+const h = document.querySelector("h1");
+const boxes = document.querySelectorAll(".box");
+//spread works in other structures too luike nodeLists
+const all = [h, ...boxes];
+
+Array.from(all).forEach(cur => cur.style.color = "red");
