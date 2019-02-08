@@ -1,0 +1,64 @@
+///////////////////////////////////
+/////Arrays
+
+//New methods and a new loop
+
+const boxes = document.querySelectorAll(".box");
+
+//ES5
+
+var boxesArr5 = Array.prototype.slice.call(boxes);
+boxesArr5.forEach(function(cur){
+	cur.style.backgroundColor = "dodgerblue";
+});
+
+
+//ES6
+//new method called .from, easier and quicker
+const boxesArr6 = Array.from(boxes);
+Array.from(boxes).forEach(cur => cur.style.backgroundColor = "dodgerblue");
+
+
+//ES5
+/*
+for(var i = 0; i < boxesArr5.length; i++){
+	if(boxesArr5[i].className === "box blue"){
+		continue;
+		// break; //only the first one will change
+	}
+	boxesArr5[i].textContent = "I changed to blue!";
+}
+*/
+
+//ES6
+//new loop combines for and foreach loop, called forOf
+for (const cur of boxesArr6){
+	if (cur.className.includes("blue")){
+		continue;
+	}
+	cur.textContent = "I changed to blue!";
+}
+//cleaner syntax
+//can use .includes
+
+//two new array methods to find elements in an array
+//before we had the indexOf method
+
+//Let's find out who is of full age
+
+//ES5
+var ages = [12, 18, 8, 21, 14, 11];
+
+var full = ages.map(function(cur){
+	return cur >= 18;
+});
+console.log(full);
+
+console.log(full.indexOf(true));
+console.log(ages[full.indexOf(true)]);
+//lengthy process
+
+//ES6
+console.log(ages.findIndex(cur => cur >= 18));
+console.log(ages.find(cur => cur >= 18));
+//simple as that when using find or findIndex
