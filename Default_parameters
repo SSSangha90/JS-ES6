@@ -1,0 +1,36 @@
+///////////////////////////////////
+/////Default Parameters
+
+//whenever we want one or more parameters to be pre-set
+
+//ES5
+/*
+function SmithPerson(firstName, yearOfBirth, lastName, nationality){
+	
+	lastName === undefined ? lastName = "Smith" : lastName = lastName;
+	nationality === undefined ? nationality = "British" : nationality = nationality;
+	//ternary operator for default parameters
+	
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.yearOfBirth = yearOfBirth;
+	this.nationality = nationality;
+}
+
+var john = new SmithPerson("John", 1990);
+//can call any function without specifying all of the objects and defines undefined to the unspecified parameters
+var emily = new SmithPerson("Emily", 1983, "Diaz", "Spanish");
+//new defined parameters overwrite our default parameters in the ternary operator
+*/
+
+//ES6
+function SmithPerson(firstName, yearOfBirth, lastName = "Smith", nationality = "British"){
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.yearOfBirth = yearOfBirth;
+	this.nationality = nationality;
+}
+//difference is we can specify the default parameters right where we declare the parameters
+
+var john = new SmithPerson("John", 1990);
+var emily = new SmithPerson("Emily", 1983, "Diaz", "Spanish");
