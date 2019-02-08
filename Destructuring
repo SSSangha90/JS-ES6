@@ -1,0 +1,47 @@
+///////////////////////////////////
+/////Destructuring
+
+// ES5
+var john = ["John", 28];
+//var name = john[0];
+//var age = john[1];
+
+//Impractical with loads of elements in an array
+
+//ES6
+//with an array
+const [name, age] = ["John", 28];
+//creates a const name name and const named year
+console.log(name);
+console.log(age);
+
+//with an object literal
+const obj = {
+	firstName: "John",
+	lastName: "Smith"
+};
+
+//destructuring works in same way, ensure keys match variable names
+
+const {firstName, lastName} = obj;
+console.log(firstName);
+console.log(lastName);
+
+const {firstName: a, lastName: b} = obj;
+//reassigning the variable names within the object construction
+
+console.log(a);
+console.log(b); //yaaas
+
+
+
+function calcAgeRetirement(year){
+	const age = new Date().getFullYear() - year;
+	return [age, 65 - age];
+}
+
+//destructuring to store into different variables
+const[age2, retirement] =
+calcAgeRetirement(1990);
+console.log(age2);
+console.log(retirement);
