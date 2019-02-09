@@ -1,0 +1,59 @@
+///////////////////////////////////
+/////Maps
+
+//entirely new to ES6
+//new datastructure
+//Hash maps, string keys to attributes, had to use objects previously but can now use maps
+
+const question = new Map();
+// just created a new empty map
+
+//let's add some data to it
+question.set('question', 'What is the capital of France?');
+//just use the .set() method
+question.set(1, 'Paris');
+question.set(2, 'Montpellier');
+question.set(3, 'Nice');
+question.set(4, 'Lyon');
+question.set(5, 'Monaco');
+question.set('correct', 1);
+question.set(true, 'Correct answer!');
+question.set(false, "Wrong answer, try again!");
+
+//to retrieve data, the opposite of set, get.
+console.log(question.get('question'));
+console.log(question.size);
+//instead of .length
+
+if(question.has(2)){
+	//question.delete(2);
+	console.log("Answer two is in here.")
+}
+
+//use the has method to find out whether the Map has a certain key
+
+//question.clear();
+//clears everything in our map, all the data.
+
+//Maps are iterable, you can loop over them
+/*question.forEach((value, key) => 
+console.log(`This is ${key}, and is set to the value of ${value}`));
+*/ 
+
+for (let [key, value] of question.entries()){
+	if (typeof(key) === 'number'){
+		console.log(`Answer ${key}: ${value}`);
+	}
+}
+
+//Lets get our answer
+
+const answer = parseInt(prompt('Write the correct answer'));
+console.log(question.get(answer === question.get('correct')));
+
+//Just built a quiz
+
+//we can use anything as keys which opens a lot of possibilities. They are iterable, easy to navigate and get the size using the size method. We can also add and remove keys. Advantages over objects.
+
+
+
