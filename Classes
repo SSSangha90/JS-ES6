@@ -1,0 +1,45 @@
+///////////////////////////////////
+/////Classes
+
+//Just syntaxical sugar
+//Easier to create inheritance
+
+//ES5
+var Person5 = function(name, yearOfBirth, job){
+	this.name = name;
+	this.yearOfBirth = yearOfBirth;
+	this.job = job;
+}
+
+Person5.prototype.calculateAge = 
+	function(){
+	var age = new Date().getFullYear = this.yearOfBirth;
+	console.log(age);
+}
+
+var john5 = new Person5("John", 1990, "Teacher");
+
+//ES6
+//class declaration
+//The constructor part is very similar, have to use the constructor key word each time
+class Person6 {
+	constructor (name, yearOfBirth, job){
+		this.name = name;
+		this.yearOfBirth = yearOfBirth;
+		this.job = job;
+	}
+	calculateAge(){
+		var age = new Date().getFullYear = this.yearOfBirth;
+		console.log(age);
+	}
+	static greeting(){
+		console.log("Hey there.");
+	}
+}
+
+const john6 = new Person6("John", 1991, "Professor");
+
+//exact same result between both
+
+Person6.greeting();
+//way to call a static function, under the hood
