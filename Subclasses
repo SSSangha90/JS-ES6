@@ -1,0 +1,76 @@
+///////////////////////////////////
+/////Classes with Subclasses
+
+//inheritance between classes using subclasses
+//i.e. having an athlete class inherit from a person class, as an athlete is still a person
+
+//ES5
+var Person5 = function(name, yearOfBirth, job){
+	this.name = name;
+	this.yearOfBirth = yearOfBirth;
+	this.job = job;
+}
+
+Person5.prototype.calculateAge = 
+	function(){
+	var age = new Date().getFullYear() - this.yearOfBirth;
+	console.log(age);
+}
+
+//have to pass in the exact same parameters from  where you're inheriting, plus the new parameters you wish to add to this particular class
+//Then use the call method on the inheriting object within the new subclass as below.
+var Athlete5 = function(name, yearOfBirth, job, olympicGames, medals){
+	Person5.call(this, name, yearOfBirth, job);
+	this.olympicGames = olympicGames;
+	this.medals = medals;
+}
+
+
+Athlete5.prototype = Object.create(Person5.prototype);
+//That's it, the two objects have been combined
+
+var sukhAthlete5 = new Athlete5("Sukh", 1990, "Weightlifter", 1, 1);
+
+Athlete5.prototype.wonMedal = function(){
+	this.medals++;
+	console.log(this.medals);
+}
+
+sukhAthlete5.calculateAge();
+sukhAthlete5.wonMedal();
+
+
+//ES6
+class Person6 {
+	constructor (name, yearOfBirth, job){
+		this.name = name;
+		this.yearOfBirth = yearOfBirth;
+		this.job = job;
+	}
+	calculateAge(){
+		var age = new Date().getFullYear = this.yearOfBirth;
+		console.log(age);
+	}
+	static greeting(){
+		console.log("Hey there.");
+	}
+}
+
+//just use the extends key word
+//use the super method instead of the call method
+class Athlete6 extends Person6 {
+	constructor(name, yearOfBirth, job, olympicGames, medals){
+		super(name, yearOfBirth, job);
+		this.olympicGames = olympicGames;
+		this.medals = medals;
+	}
+	wonMedal(){
+		this.medals++;
+		console.log(this.medals);
+	}
+}
+
+const sukhAthlete6 = new Athlete6("Sukh", 1990, "Swimmer", 3, 8);
+
+sukhAthlete6.wonMedal();
+sukhAthlete6.calculateAge();
